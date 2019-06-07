@@ -1,5 +1,5 @@
 public class Parallelogram extends Shape {
-  private Triangle tri1 = null;
+  private Triangle tri1 = null; // A Parallelogram has two triangles
   private Triangle tri2 = null;
   private double diagonal;
 
@@ -8,7 +8,7 @@ public class Parallelogram extends Shape {
     super(newColor);
     double p4[] = getFourthPoint(x1, y1, x2, y2, x3, y3);
     calcDiagonal(x1, y1, x3, y3);
-    // Dummy triangles that are not registered with class id
+    // Triangle data members that are not registered with class id
     this.tri1 = new Triangle(x1, y1, x2, y2, x3, y3);
     this.tri2 = new Triangle(x1, y1, x3, y3, p4[0], p4[1]);
   }

@@ -14,8 +14,6 @@ public class Vector {
   // create a vector from an array
   public Vector(double[] data) {
     n = data.length;
-
-    // defensive copy so that client can't alter our copy of data[]
     this.data = new double[n];
     for (int i = 0; i < n; i++) this.data[i] = data[i];
   }
@@ -64,6 +62,6 @@ public class Vector {
   }
 
   public double[] getComponents() {
-    return data;
+    return this.data;
   }
 }

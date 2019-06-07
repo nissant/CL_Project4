@@ -34,36 +34,36 @@ public class Triangle extends Shape {
     double temp[] = new double[2];
     temp[0] = p2[0] - p1[0];
     temp[1] = p2[1] - p1[1];
-    v1 = new Vector(temp);
+    this.v1 = new Vector(temp);
 
     temp[0] = p3[0] - p1[0];
     temp[1] = p3[1] - p1[1];
-    v2 = new Vector(temp);
+    this.v2 = new Vector(temp);
 
     temp[0] = p3[0] - p2[0];
     temp[1] = p3[1] - p2[1];
-    v3 = new Vector(temp);
+    this.v3 = new Vector(temp);
   }
 
   @Override
   public double getArea() {
-    return v1.determinantAbs2D(v2) / 2;
+    return this.v1.determinantAbs2D(this.v2) / 2;
   }
 
   @Override
   public double getCirc() {
-    return v1.magnitude() + v2.magnitude() + v3.magnitude();
+    return this.v1.magnitude() + this.v2.magnitude() + this.v3.magnitude();
   }
 
   @Override
   public void shapeShift(double xShift, double yShift) {
     assignPoints(
-        p1[0] + xShift,
-        p1[1] + yShift,
-        p2[0] + xShift,
-        p2[1] + yShift,
-        p3[0] + xShift,
-        p3[1] + yShift);
+        this.p1[0] + xShift,
+        this.p1[1] + yShift,
+        this.p2[0] + xShift,
+        this.p2[1] + yShift,
+        this.p3[0] + xShift,
+        this.p3[1] + yShift);
     createVectors();
   }
 

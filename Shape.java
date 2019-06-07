@@ -16,7 +16,7 @@ public abstract class Shape {
   }
 
   public Shape() {
-    //  Allow for "dummy" shapes do be created without class id registration
+    //  Allow shapes do be created as sub class data members without class id registration
   }
 
   public int getShapeID() {

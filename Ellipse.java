@@ -28,7 +28,7 @@ public class Ellipse extends Shape {
   @Override
   public double getArea() {
     calcEllipsParams();
-    return Math.PI * b * a;
+    return Math.PI * this.b * this.a;
   }
 
   @Override
@@ -36,9 +36,9 @@ public class Ellipse extends Shape {
     calcEllipsParams();
     double summation = 0;
     // Srinivasa Ramanujan gives a very good approximation
-    double h = Math.pow(a - b, 2) / Math.pow(a + b, 2);
+    double h = Math.pow(this.a - this.b, 2) / Math.pow(this.a + this.b, 2);
     summation = (3 * h) / (10 + Math.sqrt(4 - 3 * h));
-    return Math.PI * (a + b) * (1 + summation);
+    return Math.PI * (this.a + this.b) * (1 + summation);
   }
 
   @Override
