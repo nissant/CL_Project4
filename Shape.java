@@ -2,17 +2,21 @@ import java.util.Arrays;
 
 public abstract class Shape {
   private static int nShapes = 0;
+  private static final String[] shapeColors = {"blue", "red", "yellow", "green"};
   private String color;
-  private static final String[] shapeColors = {"blue", "red", "yello", "green"};
   private int id;
 
   public Shape(String newColor) {
-    // This will validate the colors and allow dummy shapes do be created without registration
+    // This will validate the colors
     if (Arrays.asList(shapeColors).contains(newColor)) {
       this.id = nShapes;
       this.color = newColor;
       Shape.nShapes += 1;
     }
+  }
+
+  public Shape() {
+    //  Allow for "dummy" shapes do be created without class id registration
   }
 
   public int getShapeID() {

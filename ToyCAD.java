@@ -4,7 +4,7 @@ import java.util.ListIterator;
 import java.util.Scanner;
 
 public class ToyCAD {
-  private static LinkedList<Shape> myShapes = new LinkedList<Shape>();
+  private static LinkedList<Shape> shapeList = new LinkedList<Shape>();
 
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
@@ -108,15 +108,13 @@ public class ToyCAD {
       default:
         return;
     }
-    myShapes.add(newShape);
+    shapeList.add(newShape);
     System.out.println(newShape.getShapeID());
-    // System.out.println("We have " + myShapes.size() + " shapes");
   }
 
   private static void DeleteShape(int shapeID) {
     Shape selectShape = getShapeByID(shapeID);
-    if (selectShape != null) myShapes.remove(selectShape);
-    System.out.println("We have " + myShapes.size() + " shapes");
+    if (selectShape != null) shapeList.remove(selectShape);
   }
 
   private static void ShapeShift(String[] Params) {
@@ -137,7 +135,7 @@ public class ToyCAD {
     Shape selectShape = getShapeByID(shapeID);
     if (selectShape != null) {
       newShape = selectShape.copyShapeShift(xShift, yShift);
-      myShapes.add(newShape);
+      shapeList.add(newShape);
     }
     System.out.println(newShape.getShapeID());
   }
@@ -150,7 +148,7 @@ public class ToyCAD {
 
   private static void CalculateTotalArea(String color) {
     double areaSum = 0;
-    ListIterator<Shape> list_Iter = myShapes.listIterator(0);
+    ListIterator<Shape> list_Iter = shapeList.listIterator(0);
     Shape nextShape = null;
     while (list_Iter.hasNext()) {
       nextShape = list_Iter.next();
@@ -163,7 +161,7 @@ public class ToyCAD {
 
   private static void CalculateTotalCirc(String color) {
     double circSum = 0;
-    ListIterator<Shape> list_Iter = myShapes.listIterator(0);
+    ListIterator<Shape> list_Iter = shapeList.listIterator(0);
     Shape nextShape = null;
     while (list_Iter.hasNext()) {
       nextShape = list_Iter.next();
@@ -190,7 +188,7 @@ public class ToyCAD {
   }
 
   private static Shape getShapeByID(int shapeID) {
-    ListIterator<Shape> list_Iter = myShapes.listIterator(0);
+    ListIterator<Shape> list_Iter = shapeList.listIterator(0);
     Shape nextShape = null;
     while (list_Iter.hasNext()) {
       nextShape = list_Iter.next();

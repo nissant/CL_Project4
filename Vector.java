@@ -1,3 +1,6 @@
+// This class was inspired by Robert Sedgewick and Kevin Wayne - Computer Science Designing Data
+// Types
+// https://introcs.cs.princeton.edu/java/33design/
 public class Vector {
   private final int n; // length of the vector
   private double[] data; // array of vector's components

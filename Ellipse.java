@@ -1,8 +1,7 @@
 public class Ellipse extends Shape {
-  static final int summationN = 3;
-  protected double fp1[] = new double[2]; // Used as center for Circle objects
+  protected double fp1[] = new double[2]; // Used as center for Circle sub class
   private double fp2[] = new double[2];
-  protected double d; // Used as radius for Circle objects
+  protected double d; // Used as radius for Circle sub class
   private double a, b, c;
 
   public Ellipse(String newColor, double x1, double y1, double x2, double y2, double d) {
@@ -26,11 +25,6 @@ public class Ellipse extends Shape {
     this.b = Math.sqrt(a * a - c * c);
   }
 
-  // private long factorial(long n)
-  // {
-  //  return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
-  // }
-
   @Override
   public double getArea() {
     calcEllipsParams();
@@ -41,11 +35,8 @@ public class Ellipse extends Shape {
   public double getCirc() {
     calcEllipsParams();
     double summation = 0;
+    // Srinivasa Ramanujan gives a very good approximation
     double h = Math.pow(a - b, 2) / Math.pow(a + b, 2);
-    // for (int i=1;i<=Ellipse.summationN;i++) {
-    //	summation +=  Math.pow( (factorial(factorial(2*i-1))) / (Math.pow(2, i)*factorial(i)) , 2) *
-    // (Math.pow(h, i)/Math.pow(2*i-1, 2));
-    // }
     summation = (3 * h) / (10 + Math.sqrt(4 - 3 * h));
     return Math.PI * (a + b) * (1 + summation);
   }

@@ -13,6 +13,12 @@ public class Triangle extends Shape {
     createVectors();
   }
 
+  public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
+    super();
+    assignPoints(x1, y1, x2, y2, x3, y3);
+    createVectors();
+  }
+
   private void assignPoints(double x1, double y1, double x2, double y2, double x3, double y3) {
     this.p1[0] = x1;
     this.p1[1] = y1;
@@ -78,9 +84,10 @@ public class Triangle extends Shape {
 
   @Override
   public boolean isPointInside(double x, double y) {
-    Triangle subTriangle_1 = new Triangle("", p1[0], p1[1], p2[0], p2[1], x, y);
-    Triangle subTriangle_2 = new Triangle("", p1[0], p1[1], p3[0], p3[1], x, y);
-    Triangle subTriangle_3 = new Triangle("", p3[0], p3[1], p2[0], p2[1], x, y);
+    // Dummy sub triangles that are not registered with class id
+    Triangle subTriangle_1 = new Triangle(p1[0], p1[1], p2[0], p2[1], x, y);
+    Triangle subTriangle_2 = new Triangle(p1[0], p1[1], p3[0], p3[1], x, y);
+    Triangle subTriangle_3 = new Triangle(p3[0], p3[1], p2[0], p2[1], x, y);
 
     if (this.getArea()
         == (subTriangle_1.getArea() + subTriangle_2.getArea() + subTriangle_3.getArea()))
@@ -92,10 +99,10 @@ public class Triangle extends Shape {
     double points[] = new double[6];
     points[0] = this.p1[0];
     points[1] = this.p1[1];
-    points[2] = this.p1[0];
-    points[3] = this.p1[1];
-    points[4] = this.p1[0];
-    points[5] = this.p1[1];
+    points[2] = this.p2[0];
+    points[3] = this.p2[1];
+    points[4] = this.p3[0];
+    points[5] = this.p3[1];
     return points;
   }
 }

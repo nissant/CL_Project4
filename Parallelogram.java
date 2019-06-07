@@ -7,9 +7,10 @@ public class Parallelogram extends Shape {
       String newColor, double x1, double y1, double x2, double y2, double x3, double y3) {
     super(newColor);
     double p4[] = getFourthPoint(x1, y1, x2, y2, x3, y3);
-    getDiagonal(x1, y1, x3, y3);
-    this.tri1 = new Triangle("", x1, y1, x2, y2, x3, y3);
-    this.tri2 = new Triangle("", x1, y1, x3, y3, p4[0], p4[1]);
+    calcDiagonal(x1, y1, x3, y3);
+    // Dummy triangles that are not registered with class id
+    this.tri1 = new Triangle(x1, y1, x2, y2, x3, y3);
+    this.tri2 = new Triangle(x1, y1, x3, y3, p4[0], p4[1]);
   }
 
   private double[] getFourthPoint(
@@ -32,7 +33,7 @@ public class Parallelogram extends Shape {
     return v_pos.plus(v3).getComponents();
   }
 
-  private void getDiagonal(double x1, double y1, double x3, double y3) {
+  private void calcDiagonal(double x1, double y1, double x3, double y3) {
     double temp[] = new double[2];
     temp[0] = x1 - x3;
     temp[1] = y1 - y3;
